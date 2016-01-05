@@ -1,5 +1,4 @@
 /* 
-    File:   main.cpp
     Author: Ryan DeLeon
     Created on January 4, 2016, 10:18 AM
     Purpose: Check out IDE
