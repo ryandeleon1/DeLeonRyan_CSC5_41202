@@ -15,10 +15,7 @@ using namespace std;
 //User Libraries
 
 //Global Constant
-const char ;//
-const char ;//
-const char ; //
-const char ; //
+const float GRAVITY=32.174f;//Sea level earth acceleration constant in ft/sec^2
 
 //Function Prototypes
 
