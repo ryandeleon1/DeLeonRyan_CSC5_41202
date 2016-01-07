@@ -1,48 +1,54 @@
 /* 
- * Author: Ryan DeLEon
- * Created on January 6, 2016, 10:42 am
- * Purpose:  Quarters Nickels Dimes         
+ * Author: Ryan DeLeon
+ * Created on January 7, 2016, 10:48 am
+ * Purpose: How far does it drop?       
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream>//I/O library
+#include <cstdlib> //Random Function Location
+#include <cmath>   //Math functions
+#include <ctime>   //Time to set the random speed
+#include <iomanip> //Format library
+#include <fstream> //Reading/writing to a file
 using namespace std;
 
 //User Libraries
 
 //Global Constant
-const char cnvQrts=25;//
-const char cnvDime=10;//
-const char cnvNikl=5; //
-const char cnvPnDl=100; //
+const float GRAVITY=32.174f;//Sea level earth acceleration constant in ft/sec^2
 
 //Function Prototypes
 
 //Execution Begins Here
 int main(int argc, char** argv) {
-    //Declare and initialize variables
-    unsigned short nQrts,nNikl,nDime;  //
-    unsigned short total;             //
     
-    //Input the number of coins
-    cout<<" "<<endl;
-    cin>>nQrts;
-    cout<<" "<<endl;
-    cin>>nDime;
-    cout<<" "<<endl;
-    cin>>nNikl;
+    //Set the random number seed
+    srand(static_cast<unsigned int>(time(0))) ;  //
     
-    //Calculate the total
-    total=(nQrts*cnvQrts+nDime*cnvDime+nNikl*cnvNikl);
+    //Declare Variables
+    ofstream out; //Declare a file stream object called out
+    float drpTime, dist; //Time in second, distance in feet
     
+    //inputting the time with a random number and opening a file
+    drpTime=rand()%11+10; //[10,20]secs
+    const int SIZE=21;
+    char fileNam[SIZE]="DropDistance.dat";
+    out.open(fileNam);
+    
+    //Calculate the distance dropped
+    dist=0.5*GRAVITY*drpTime*drpTime;
     
     //Output the results
-    cout<<"Number of Quarters input = "<<nQrts<<endl;
-    cout<<"Number of Dimes input    = "<<nDime<<endl;
-    cout<<"Number of Nickels input  = "<<nQrts<<endl;
-    cout<<"The dollar amount        = $"<<1.0f*total/cnvPnDl<<endl;
+    cout<<"Drop Time = "<<drpTime<<" sec"<<endl;
+    cout<<fixed<<setprecision(3)<<showpoint<<endl; //format the distance to 3 decimals
+    cout<<"Distance dropped ="<<setw(9)<<dist<<" ft"<<endl;
+    
+    //Output the results to a file
+    out<<fixed<<setprecision(3)<<showpoint<<endl;
+    out<<"Distance dropped ="<<setw(9)<<dist<<" ft"<<endl;
 
-
-    //All Done!
+    //All Done! make sure to close files
+    out.close();
     return 0;
 }
