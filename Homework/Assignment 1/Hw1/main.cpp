@@ -1,46 +1,49 @@
 /* 
- * Author: Ryan DeLEon
- * Created on January 6, 2016, 10:42 am
- * Purpose:  Quarters Nickels Dimes         
+ * Author: Ryan DeLeon
+ * Created on January 7, 2016, 10:48 am
+ * Purpose: How far does it drop?       
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream>//I/O library
+#include <cstdlib> //Random Function Location
+#include <cmath>   //Math functions
+#include <ctime>   //Time to set the random speed
+#include <iomanip> //Format library
 using namespace std;
 
 //User Libraries
 
 //Global Constant
-const char cnvQrts=25;//
-const char cnvDime=10;//
-const char cnvNikl=5; //
-const char cnvPnDl=100; //
+const char ;//
+const char ;//
+const char ; //
+const char ; //
 
 //Function Prototypes
 
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare and initialize variables
-    unsigned short nQrts,nNikl,nDime;  //
-    unsigned short total;             //
+    unsigned short ;  //
+    unsigned short ;  //
     
-    //Input the number of coins
+    //
     cout<<" "<<endl;
-    cin>>nQrts;
+    cin>>;
     cout<<" "<<endl;
-    cin>>nDime;
+    cin>>;
     cout<<" "<<endl;
-    cin>>nNikl;
+    cin>>;
     
     //Calculate the total
-    total=(nQrts*cnvQrts+nDime*cnvDime+nNikl*cnvNikl);
+    ;
     
     
     //Output the results
-    cout<<"Number of Quarters input = "<<nQrts<<endl;
-    cout<<"Number of Dimes input    = "<<nDime<<endl;
-    cout<<"Number of Nickels input  = "<<nQrts<<endl;
-    cout<<"The dollar amount        = $"<<1.0f*total/cnvPnDl<<endl;
+    cout<<" "<< <<endl;
+    cout<<" "<< <<endl;
+    cout<<" "<< <<endl;
 
 
     //All Done!
