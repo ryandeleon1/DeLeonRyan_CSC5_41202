@@ -21,27 +21,22 @@ const float GRAVITY=32.174f;//Sea level earth acceleration constant in ft/sec^2
 
 //Execution Begins Here
 int main(int argc, char** argv) {
-    //Declare and initialize variables
-    unsigned short ;  //
-    unsigned short ;  //
+    //Set the random number seed
+    srand(static_cast<unsigned int>(time(0))) ;  //
     
-    //
-    cout<<" "<<endl;
-    cin>>;
-    cout<<" "<<endl;
-    cin>>;
-    cout<<" "<<endl;
-    cin>>;
+    //Declare Variables
+    float drpTime, distance; //Time in second distance in feet
     
-    //Calculate the total
-    ;
+    //inputting th time with a random number
+    drpTime=rand()%11+10; //[10,20]secs
     
+    //Calculate the 
+    distance=0.5*GRAVITY*drpTime*drpTime;
     
     //Output the results
-    cout<<" "<< <<endl;
-    cout<<" "<< <<endl;
-    cout<<" "<< <<endl;
-
+    cout<<"Drop Time = "<<drpTime<<" sec"<<endl;
+    cout<<fixed<<setprecision(3)<<showpoint<<endl;
+    cout<<"Distance dropped = "<<distance<<" ft"<<endl;
 
     //All Done!
     return 0;
