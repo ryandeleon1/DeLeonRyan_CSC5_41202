@@ -33,14 +33,14 @@ int main(int argc, char** argv) {
     cin>>nNikl;
     
     //Calculate the total
-    total=((nQrts)*cnvQrts+(nDime)*cnvDime+(nNikl)*cnvNikl)/cnvPnDl;
+    total=(nQrts*cnvQrts+nDime*cnvDime+nNikl*cnvNikl);
     
     
     //Output the results
     cout<<"Number of Quarters input = "<<nQrts<<endl;
     cout<<"Number of Dimes input    = "<<nDime<<endl;
     cout<<"Number of Nickels input  = "<<nQrts<<endl;
-    cout<<"The dollar amount        = $"<<total<<endl;
+    cout<<"The dollar amount        = $"<<1.0f*total/cnvPnDl<<endl;
 
 
     //All Done!
