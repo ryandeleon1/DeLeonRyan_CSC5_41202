@@ -1,54 +1,40 @@
 /* 
  * Author: Ryan DeLeon
- * Created on January 7, 2016, 10:48 am
- * Purpose: How far does it drop?       
+ * Created on January 9, 2016, 12:57 pm
+ * Purpose: Adding and multiplying integers       
  */
 
 //System Libraries
-#include <iostream>//I/O library
-#include <cstdlib> //Random Function Location
-#include <cmath>   //Math functions
-#include <ctime>   //Time to set the random speed
-#include <iomanip> //Format library
-#include <fstream> //Reading/writing to a file
+#include <iostream> //I/O library
 using namespace std;
 
 //User Libraries
 
 //Global Constant
-const float GRAVITY=32.174f;//Sea level earth acceleration constant in ft/sec^2
 
 //Function Prototypes
 
 //Execution Begins Here
 int main(int argc, char** argv) {
     
-    //Set the random number seed
-    srand(static_cast<unsigned int>(time(0))) ;  //
-    
     //Declare Variables
-    ofstream out; //Declare a file stream object called out
-    float drpTime, dist; //Time in second, distance in feet
+    int int1, int2; //First and second integers
+    int sum, prod; // Sum and product of the integers
     
-    //inputting the time with a random number and opening a file
-    drpTime=rand()%11+10; //[10,20]secs
-    const int SIZE=21;
-    char fileNam[SIZE]="DropDistance.dat";
-    out.open(fileNam);
+    //inputting the 2 integers
+    cout<<"Input the first integer."<<endl;
+    cin>>int1>>endl;
+    cout<<"Input the second integer."<<endl;
+    cin>>int2>>endl;
     
-    //Calculate the distance dropped
-    dist=0.5*GRAVITY*drpTime*drpTime;
+    //Calculate the sum and product
+    prod=int1*int2;
+    sum=int1+int2;
     
     //Output the results
-    cout<<"Drop Time = "<<drpTime<<" sec"<<endl;
-    cout<<fixed<<setprecision(3)<<showpoint<<endl; //format the distance to 3 decimals
-    cout<<"Distance dropped ="<<setw(9)<<dist<<" ft"<<endl;
-    
-    //Output the results to a file
-    out<<fixed<<setprecision(3)<<showpoint<<endl;
-    out<<"Distance dropped ="<<setw(9)<<dist<<" ft"<<endl;
+    cout<<"The sum of your two integers is = "<<sum<<endl;
+    cout<<"The product of your two integers is = "<<prod<<endl;
 
-    //All Done! make sure to close files
-    out.close();
+    //All Done! 
     return 0;
 }

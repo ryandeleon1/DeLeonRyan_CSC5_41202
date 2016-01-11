@@ -17,8 +17,8 @@ using namespace std;
 //Execution begins here
 int main(int argc, char** argv) {
     //Declare and initialize variables
-    unsigned char hrsWrkd=32; //Hours Worked
-    float payRate=14.0f;        //Pay Rate in $'s/hour
+    unsigned char hrsWrkd=72; //Hours Worked
+    float payRate=10.0f;        //Pay Rate in $'s/hour
     
     //Calculate or map inputs to outputs
     float payChk=payRate*hrsWrkd;
