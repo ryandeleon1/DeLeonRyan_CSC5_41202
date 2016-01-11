@@ -101,9 +101,6 @@ int main(int argc, char** argv) {
     a=a^b;
     cout<<"after swap   a="<<a<<" and b="<<b<<endl;
     
-    //0utput the values
-    
-    
     // And done!
     return 0;
 }
