@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=ternary_operator
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/ternary_operator
+CND_ARTIFACT_NAME_Debug=switch
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/switch
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=ternaryoperator.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/ternaryoperator.tar
+CND_PACKAGE_NAME_Debug=switch.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/switch.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=ternary_operator
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/ternary_operator
+CND_ARTIFACT_NAME_Release=switch
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/switch
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=ternaryoperator.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/ternaryoperator.tar
+CND_PACKAGE_NAME_Release=switch.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/switch.tar
 #
 # include compiler specific variables
 #

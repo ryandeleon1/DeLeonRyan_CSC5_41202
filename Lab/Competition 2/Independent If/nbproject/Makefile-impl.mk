@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Ternary Operator
+PROJECTNAME=Independent If
 
 # Active Configuration
 DEFAULTCONF=Debug
