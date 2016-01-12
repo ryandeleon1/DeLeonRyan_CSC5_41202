@@ -1,7 +1,7 @@
 /* 
  * Author: Ryan DeLeon
- * Created on January 11, 2016, 4:08 am
- * Purpose: Number of peas in a pod     
+ * Created on January 11, 2016, 5:15 pm
+ * Purpose: Peas in a pod       
  */
 
 //System Libraries
@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
     int numPods, peaPPod, totPeas;
     
     //Output the results
+    cout<<"Hello"<<endl;
     cout<<"Press return after entering a number."<<endl;
     cout<<"Enter the number of pods."<<endl;
     cin>>numPods;
@@ -28,10 +29,11 @@ int main(int argc, char** argv) {
     cin>>peaPPod;
    
     //Calculate the number of pods
-    totPeas=numPods*peaPPod;
+    totPeas=numPods+peaPPod;
     cout<<"If you have "<<numPods<<" pea pods"<<endl;
     cout<<"and "<<peaPPod<<" peas in each pod, then you have ";
     cout<<totPeas<<" peas in all the pods."<<endl;
+    cout<<"Goodbye"<<endl;
 
     //All Done! 
     return 0;
