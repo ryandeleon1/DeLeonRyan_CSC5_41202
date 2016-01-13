@@ -1,7 +1,7 @@
 /* 
  * Author: Ryan DeLeon
  * Created on January 13, 2016, 8:42 AM
- * Loan Payment
+ * Car loan Payment
  */
 
 #include <iostream>
