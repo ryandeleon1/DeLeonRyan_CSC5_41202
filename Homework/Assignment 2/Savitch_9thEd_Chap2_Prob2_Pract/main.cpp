@@ -39,14 +39,14 @@ int main(int argc, char** argv) {
     r=n/guess;
     guess=(guess+r)/2;
  
- //Outputs results second pass
+ //Outputs results third pass
     cout<<"The third pass guess ="<<guess<<endl;
  
  //Approximate the square root fourth pass
     r=n/guess;
     guess=(guess+r)/2;
  
- //Outputs results second pass
+ //Outputs results fourth pass
     cout<<"The fourth pass guess ="<<guess<<endl;
     
  //Approximate the square root fifth pass
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
     guess=(guess+r)/2;
  
  //Outputs results fifth pass
-    cout<<"The second pass guess ="<<guess<<endl;
+    cout<<"The fifth pass guess ="<<guess<<endl;
        
     return 0;
 }
