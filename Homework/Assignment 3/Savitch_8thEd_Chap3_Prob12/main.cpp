@@ -19,24 +19,24 @@ using namespace std;
 //Execution begins here
 int main(int argc, char** argv) {
     //Declare variables
-  unsigned int nTerms;
-  unsigned int denom=3;
-  float Pi=4.0f;
-  bool condition=true;
-  cout << "How many terms for your approximation? ";
-  cin >> nTerms;
-  for (unsigned int i=1;i<=nTerms;i++) {
-    if (condition) {
-      Pi-=(4.0/denom);
-      condition=false;
-      denom+=2;
+  unsigned int nTerms;   //Desired number of terms
+  unsigned int divide=3; //denominator for each term
+  float apprxPi=1.0f;    //approximation of pi
+  bool plmn=true;        //switching between plus and minus
+  cout<<"How many terms for your approximation? "<<endl;
+  cin>>nTerms;
+  for (unsigned int n=1;n<=nTerms;n++) {
+    if (plmn) {
+      apprxPi-=(1.0/divide);
+      plmn=false;
+      divide+=2;
     } else {
-      Pi+=(4.0/denom);
-      condition=true;
-      denom+=2;
+      apprxPi+=(1.0/divide);
+      plmn=true;
+      divide+=2;
     }
   }
-  cout<<"Pi calculated with "<<nTerms<<" terms is = "<<Pi<<endl;
+  cout<<"Pi calculated with "<<nTerms<<" terms = "<<4*apprxPi<<endl;
   
     // And done!
     return 0;
