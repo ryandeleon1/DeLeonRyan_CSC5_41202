@@ -32,6 +32,7 @@ int main(int argc, char** argv) {
     cout<<"Type 2 to display Savitch 8thEd Chap3 Prob 11."<<endl;
     cout<<"Type 3 to display Savitch 8thEd Chap3 Prob 12."<<endl;
     cout<<"Type 4 to display Savitch 7thEd Chap3 Prob 1."<<endl;
+    cout<<"Type 5 to display Savitch 9thEd Chap3 Prob 3."<<endl;
     cout<<"Type anything else to exit."<<endl;
     cin>>nSoltn;
     
@@ -123,10 +124,7 @@ int main(int argc, char** argv) {
                   cout<<"Pi calculated with "<<nTerms<<" terms = "<<4*apprxPi<<endl<<endl;
                break; 
             }
-            default:{
-                cout<<"Exiting the program"<<endl;
-                reDsply=false;
-            }case 4:{
+            case 4:{
              cout<<endl<<"Rock Paper Scissor Game."<<endl;
      
                 //set random number seed
@@ -174,6 +172,82 @@ int main(int argc, char** argv) {
                  cin>>qstion;
             }while(toupper(qstion)=='Y');
             }
+            case 5:{
+                cout<<"Savitch 9thEd Chap3 Prob3."<<endl;;
+                cout<<"Roman Numeral Converter."<<endl<<endl;
+
+                //Declare and initialize variables
+                 unsigned short number; //[1000,3000]
+                 unsigned char n1000s, n100s, n10s, n1s; //number of 1000's, 100's, 10's, 1's
+
+                //Input the number
+                 cout<<"Input the number you would like to convert."<<endl;
+                 cin>>number;
+
+                //Calculate the number of 1000's, 100's, 10's, 1's
+                 cout<<endl<<"The number to convert = "<<number<<endl;
+                 n1000s=(number-number%1000)/1000; //Number of 1000's
+                 number=(number-n1000s*1000);      //Subtract off 1000's
+                 n100s=(number-number%100)/100;    //Number of 100's
+                 number=(number-n100s*100);        //Subtract off 100's
+                 n10s=(number-number%10)/10;       //Number of 10's
+                 n1s=(number-n10s*10);             //Subtract off 10's to get 1's
+
+                 //Output the number and its components
+                 cout<<"The number to 1000's = "<<static_cast<int>(n1000s)<<endl; 
+                 cout<<"The number to 100's  = "<<static_cast<int>(n100s)<<endl; 
+                 cout<<"The number to 10's   = "<<static_cast<int>(n10s)<<endl; 
+                 cout<<"The number to 1's    = "<<static_cast<int>(n1s)<<endl<<endl; 
+
+                 //Output the results
+                 cout<<"The Roman numeral equivalent = ";
+
+                 //Output the thousands
+                 switch(n1000s){
+                     case 3: cout<<"M";
+                     case 2: cout<<"M";
+                     case 1: cout<<"M";
+                 }
+                 //Output the hundreds
+                 switch(n100s){
+                     case 9: cout<<"CM";break;
+                     case 8: cout<<"DCCC";break;
+                     case 7: cout<<"DCC";break;
+                     case 6: cout<<"DC";break;
+                     case 5: cout<<"D";break;
+                     case 4: cout<<"CD";break;
+                     case 3: cout<<"C";
+                     case 2: cout<<"C";
+                     case 1: cout<<"C";
+                 }
+                 //Output the tens
+                 switch(n10s){
+                     case 9: cout<<"XC";break;
+                     case 8: cout<<"LXXX";break;
+                     case 7: cout<<"LXX";break;
+                     case 6: cout<<"LX";break;
+                     case 5: cout<<"L";break;
+                     case 4: cout<<"XL";break;
+                     case 3: cout<<"X";
+                     case 2: cout<<"X";
+                     case 1: cout<<"X";
+                 }
+                 //Output the ones
+                 switch(n1s){
+                     case 9: cout<<"IX";break;
+                     case 8: cout<<"VIII";break;
+                     case 7: cout<<"VII";break;
+                     case 6: cout<<"VI";break;
+                     case 5: cout<<"V";break;
+                     case 4: cout<<"IV";break;
+                     case 3: cout<<"I";
+                     case 2: cout<<"I";
+                     case 1: cout<<"I";
+                 }
+            }
+            default:{
+                cout<<endl<<"Exiting the program"<<endl;
+                reDsply=false;}
         }
         
     }while(reDsply);
