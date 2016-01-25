@@ -310,7 +310,7 @@ int main(int argc, char** argv) {
                         else cout<<"Your zodiac sign is Scorpio."<<endl;
                         break;}
 
-                    }
+                    }break;
             }
             default:{
                 cout<<endl<<"Exiting the program"<<endl;
