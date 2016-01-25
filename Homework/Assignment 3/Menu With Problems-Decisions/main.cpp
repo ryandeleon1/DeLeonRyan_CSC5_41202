@@ -253,7 +253,6 @@ int main(int argc, char** argv) {
                 cout<<endl<<"Savitch 9thEd Chap3 Prob3."<<endl;
                 cout<<"Zodiac sign indicator."<<endl;
 
-                do{
                     //input the users birth date
                     cout<<"What is the month of your birthday? (Enter as a number 1-12)"<<endl;
                     cin>>month;
@@ -312,13 +311,6 @@ int main(int argc, char** argv) {
                         break;}
 
                     }
-                    cout<<"Would you like to try again?"<<endl;
-                    cin>>answer;
-                    if (answer='y')
-                        reDsply=true;
-                    else 
-                        reDsply=false;
-                }while (reDsply=true);
             }
             default:{
                 cout<<endl<<"Exiting the program"<<endl;
