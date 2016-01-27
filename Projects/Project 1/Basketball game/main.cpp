@@ -101,10 +101,10 @@ int main(){
     }
     cout<<endl<<endl;
     cout<<"Ok now lets start the game. First player to score 2 points wins."<<endl;
-    cout<<"Each possession will have a different set of instructions and you may"
+    cout<<"Each possession will have a different set of instructions and you"<<endl
             <<" need to react quickly so pay attention. BEGIN!"<<endl<<endl;
  //First posession
-    cout<<"You check the ball to "<<opponent<<". Now since you're on defense"
+    cout<<"You check the ball to "<<opponent<<". Now since you're on defense"<<endl;
             <<" you have to force him to his off hand."<<endl;
     cout<<"Enter 'L' to force "<<opponent<<" left. Or 'R' to force him right"<<endl;
     cin>>selFor;
@@ -113,15 +113,17 @@ int main(){
     if (selFor=='L')
         force=false;
     if (opponent=="Steph"){
-        cout<<"Sorry, unfortunately you chose to play the best ball handler" 
-                <<" in the world so he has no off hand."<<endl;
+        cout<<"Sorry, unfortunately you chose to play the best ball handler"<<endl 
+                <<" in the world so he has no off hand. You "<<endl;
         opts++;
+        cout<<"The score "
     }else if (opponent=="Kobe"){
         if (selFor=='L')
             opts++;
         else ppts++;
         cout<<(force?"Wrong move, Kobe is right handed and you get dunked on":
             "Nice move, forcing him left caused a turnover. Your ball")<<endl;
+        cout<<"The score is "<<ppts<<" - "<<opts;
     }    
 return (0);
 }
