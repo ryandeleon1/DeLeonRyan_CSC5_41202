@@ -48,23 +48,23 @@ int main(){
     cout<<"4. Kevin Durant"<<endl<<endl;
     cin>>selOp;
     if(selOp==1){
-        cout<<"Your chose to face the King, Good Luck."<<endl;
+        cout<<"Your chose to face the King, Good Luck."<<endl<<endl;
         opponent="Lebron";
     }
     else if(selOp==2){
-        cout<<"They dont call Kobe the Black Mamba for nothing, Good Luck!"<<endl;
+        cout<<"They dont call Kobe the Black Mamba for nothing, Good Luck!"<<endl<<endl;
         opponent="Kobe";
     }
     else if(selOp==3){
-        cout<<"Dont let the babyface fool you, Steph is an assasin, Good Luck!."<<endl;
+        cout<<"Dont let the babyface fool you, Steph is an assasin, Good Luck!."<<endl<<endl;
         opponent="Steph";
     }
     else if(selOp==4){
-        cout<<"The Duranchula is 7 foot point guard, Good Luck!"<<endl;
+        cout<<"The Duranchula is 7 foot point guard, Good Luck!"<<endl<<endl;
         opponent="Kevin";
     }
     else if(selOp<1 || selOp>4){
-        cout<<"Sorry, I know you're scared but you gotta pick one"<<endl;
+        cout<<"Sorry, I know you're scared but you gotta pick one"<<endl<<endl;
     }
     }while (selOp<1 || selOp>4);
     
@@ -98,8 +98,11 @@ int main(){
         }
     }
     cout<<endl<<endl;
-    cout<<"Ok now lets start the game. First player to 3 wins"<<endl;
-    cout<<"You check the ball to "<<opponent<<endl;
+    cout<<"Ok now lets start the game. First player to score 2 points wins."<<endl;
+    cout<<"Each possession will have a different set of instructions and you may"
+            <<" need to react quickly so pay attention. BEGIN!"<<endl<<endl;
+    cout<<"You check the ball to "<<opponent<<". Now since you're on defense "
+            <<" you have to force hi"
     
 return (0);
 }
