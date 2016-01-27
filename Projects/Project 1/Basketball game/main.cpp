@@ -19,36 +19,38 @@ using namespace std;
 //Execution Begins Here
 
 int main(){
-    //Header
+ //Header
     cout<<"*************************************************************"<<endl;
     cout<<"**                    BASKETBALL ALL STARS                 **"<<endl;
     cout<<"**                  Created By:  Ryan DeLeon               **"<<endl;
     cout<<"*************************************************************"<<endl;
     
-    //Set random seed
+ //Set random seed
     srand(static_cast<unsigned int>(time(0)));
     
-    //Declare Variables
+ //Declare Variables
     string player, opponent;
-    unsigned short selOp, court, shoot, block;
+    unsigned short selOp, court;
+    unsigned char selFor;
+    bool force=true;       
     unsigned short ppts, opts; //Players and opponents points 
     
-    //Player input
+ //Player input
     cout<<"WELCOME TO BASKETBALL ALLSTARS"<<endl;
     cout<<"Please enter the name of your player."<<endl;
     getline(cin, player);
-    //Picking opponent
-    cout<<"Cool, so your "<<player<<". "<<endl;
+ //Picking opponent
+    cout<<"Cool, so you're "<<player<<". "<<endl;
     cout<<"Which NBA ALL-STAR would you like to go up against?"<<endl;
     do{
     cout<<"Enter the number of the opponent you choose."<<endl;
     cout<<"1. Lebron James"<<endl;
     cout<<"2. Kobe Bryant"<<endl; 
     cout<<"3. Steph curry"<<endl;
-    cout<<"4. Kevin Durant"<<endl<<endl;
+    cout<<"4. James Harden"<<endl<<endl;
     cin>>selOp;
     if(selOp==1){
-        cout<<"Your chose to face the King, Good Luck."<<endl<<endl;
+        cout<<"You chose to face the King, Good Luck."<<endl<<endl;
         opponent="Lebron";
     }
     else if(selOp==2){
@@ -60,14 +62,14 @@ int main(){
         opponent="Steph";
     }
     else if(selOp==4){
-        cout<<"The Duranchula is 7 foot point guard, Good Luck!"<<endl<<endl;
+        cout<<"Fear the beard, Good Luck!"<<endl<<endl;
         opponent="Kevin";
     }
     else if(selOp<1 || selOp>4){
         cout<<"Sorry, I know you're scared but you gotta pick one"<<endl<<endl;
     }
     }while (selOp<1 || selOp>4);
-    
+ //Selecting arena     
     cout<<"One last thing, pick the arena you would like to play in."<<endl;
     cout<<"1. Staples Center"<<endl;
     cout<<"2. Madison Square Garden"<<endl;
@@ -101,8 +103,25 @@ int main(){
     cout<<"Ok now lets start the game. First player to score 2 points wins."<<endl;
     cout<<"Each possession will have a different set of instructions and you may"
             <<" need to react quickly so pay attention. BEGIN!"<<endl<<endl;
-    cout<<"You check the ball to "<<opponent<<". Now since you're on defense "
-            <<" you have to force hi"
+ //First posession
+    cout<<"You check the ball to "<<opponent<<". Now since you're on defense"
+            <<" you have to force him to his off hand."<<endl;
+    cout<<"Enter 'L' to force "<<opponent<<" left. Or 'R' to force him right"<<endl;
+    cin>>selFor;
     
+    //Using ternary operator 
+    if (selFor=='L')
+        force=false;
+    if (opponent=="Steph"){
+        cout<<"Sorry, unfortunately you chose to play the best ball handler" 
+                <<" in the world so he has no off hand."<<endl;
+        opts++;
+    }else if (opponent=="Kobe"){
+        if (selFor=='L')
+            opts++;
+        else ppts++;
+        cout<<(force?"Wrong move, Kobe is right handed and you get dunked on":
+            "Nice move, forcing him left caused a turnover. Your ball")<<endl;
+    }    
 return (0);
 }
