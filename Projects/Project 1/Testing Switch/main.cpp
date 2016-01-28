@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Ryan DeLeon
- * Created on January 26, 2016, 6:36 PM
+ * Created on January 26, 2016, 10:50 PM
  */
 
 //User Libraries
@@ -25,12 +25,12 @@ int main(){
     cout<<"**                  Created By:  Ryan DeLeon               **"<<endl;
     cout<<"*************************************************************"<<endl;
     
- //Set random seed
-    srand(static_cast<unsigned int>(time(0)));
+
     
  //Declare Variables
     string player, opponent;
-    unsigned short selOp;
+    unsigned short selOp, court;
+    unsigned char selFor, CselFor;
     
  //Player input
     cout<<"WELCOME TO BASKETBALL ALLSTARS"<<endl;
@@ -65,6 +65,36 @@ int main(){
     else if(selOp<1 || selOp>4){
         cout<<"Sorry, I know you're scared but you gotta pick one"<<endl<<endl;
     }
-    } while (selOp<1 || selOp>4);  
+    }while (selOp<1 || selOp>4);
+ //Selecting arena     
+    cout<<"One last thing, pick the arena you would like to play in."<<endl;
+    cout<<"1. Staples Center"<<endl;
+    cout<<"2. Madison Square Garden"<<endl;
+    cout<<"3. Pauley Pavilion"<<endl;
+    cout<<"4. Rucker Park"<<endl;
+    cout<<"Enter the number next to the court you want."<<endl<<endl;
+    cin>>court;
+    switch(court){
+        case 1:{
+            cout<<"Welcome to Staples Center. Home of the LA Lakers."<<endl;
+            break;
+        }
+        case 2:{
+            cout<<"Welcome to Madison Square Garden. Home of the NY Knicks."<<endl;
+            break;
+        }
+        case 3:{
+            cout<<"Welcome to Pauley Pavilion. Home of the UCLA Bruins."<<endl;
+            break;
+        }
+        case 4:{
+            cout<<"Welcome to Rucker Park. Streetball Central."<<endl;
+            break;
+        }
+        default:{
+            cout<<"Please select a court."<<endl;
+            break;
+        }
+    }     
 return (0);
 }
