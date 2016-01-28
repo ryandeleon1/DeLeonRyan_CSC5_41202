@@ -34,6 +34,10 @@ int main(int argc, char** argv) {
     cout<<"Type 4 to display Savitch 7thEd Chap3 Prob 1."<<endl;
     cout<<"Type 5 to display Savitch 9thEd Chap3 Prob 3."<<endl;
     cout<<"Type 6 to display Savitch 9thEd Chap3 Prob3 Practice."<<endl;
+    cout<<"Type 7 to display Gaddis 8th Ed Prob 11."<<endl;
+    cout<<"Type 8 to display Gaddis 8th Ed Prob 12."<<endl;
+    cout<<"Type 9 to display Gaddis 8th Ed Prob 16."<<endl;
+    cout<<"Type 10 to display Gaddis 8th Ed Prob 23."<<endl;
     cout<<"Type anything else to exit."<<endl;
     cin>>nSoltn;
     
@@ -311,7 +315,196 @@ int main(int argc, char** argv) {
                         break;}
 
                     }break;
-            }
+            }case 7:{
+                //Declare and Initialize Variables
+                unsigned short num1, num2, answer, stuAns;
+
+                //Set random number seed
+                srand(static_cast<int>(time(0))); 
+
+                num1=rand()%1000; //Generate a random value [0,1000]
+                num2=rand()%1000; //Generate a random value [0,1000]
+
+                answer = num1 + num2; //Set the answer to num1 + num2
+
+                //Problem Information
+                cout<<endl<<"Gaddis 8th Ed Chap4 Prob11."<<endl;
+                cout<<"Adding problems for students"<<endl<<endl;
+
+                //Input Data
+                cout << "Try to answer the following problem." << endl;
+                cout << num1 << " + " << num2 << " = ";
+                cin >> stuAns;
+
+                //Output Results
+                if(stuAns==answer){ //If the input answer is correct
+                    cout << "That is Correct" << endl;
+                }
+                else{ //If the input answer is incorrect
+                    cout << "That is incorrect" << endl;
+                }
+        }break;
+            case 8: {
+                                //Declare and Initialize Variables
+                unsigned short price=99; //price for software
+                float tier1 = 0.2f,tier2 = 0.3f,tier3 = 0.4f, tier4 = 0.5f;
+                unsigned short numSft,total; 
+                float discount; 
+
+                //Problem Information
+                cout << "Gaddis 8th Ed Chap4 Prob12" << endl;
+                cout << "Discount Calculator For Software Purchase"<<endl<<endl;
+
+                //Input Data
+                do{ 
+                    cout<<"How many software downloads are you buying? ";
+                    cin>>numSft;
+                } while(numSft< 0);
+
+                //Output
+                if (numSft < 10){ 
+                    discount=0.0f;
+                }
+                else if (numSft < 20){
+                    discount=tier1;
+                }
+                else if (numSft < 50){ 
+                    discount=tier2;
+                }
+                else if (numSft < 100){
+                    discount=tier3;
+                }
+                else{ 
+                    discount=tier4;
+                }
+
+                //Calculate the total price
+                total = (price * numSft) - ((price * numSft) * discount);
+
+                //Output Results
+                cout<<"SubTotal     = $" <<price*numSft<<endl;
+                cout<<"Discount     =  " <<discount*100<<"%"<<endl;
+                cout<<"Total        = $" <<total<<endl; 
+            }break;
+            case 9: {
+                //Declare an initialize
+                string name1, name2, name3; //Names of runners
+                float time1, time2, time3; //times for runners
+
+                //Problem Information
+                cout << "Gaddis 8th Ed. Chap4 Prob16." << endl;
+                cout << "Who Won the race?" << endl;
+
+
+                //Inputs
+                cout<<"Enter the first runner's name."<<endl;
+                getline(cin, name1);
+                cout<<"Enter the second runner's name."<<endl;
+                getline(cin, name2);
+                cout<<"Enter the third runner's name."<<endl;
+                getline(cin, name3);
+
+                do{
+                    cout<<endl<<"Enter the first runner's time (secs) "<<endl;
+                    cin>>time1;
+                    cout<<"Enter the second runner's time (secs) "<<endl;
+                    cin>>time2;
+                    cout<<"Enter the third runner's time (secs) "<<endl;
+                    cin>>time3;
+                } while (time1<0 || time2<0 || time3<0);
+
+                //Calculate and Output Results
+                if(time1<=time2 && time1<=time3){
+                    cout<<"The first place runner is "<<name1<<endl;
+                    if(time2 <= time3){
+                        cout<<"The second place runner is "<<name2<<endl;
+                        cout<<"The third place runner is "<<name3<<endl;
+                    }
+                    else{ 
+                        cout<<"The second place runner is "<<name3<<endl;
+                        cout<<"The third Place runner is "<<name2<<endl;
+                    }
+                }
+                else if(time2<=time1 && time2<=time3) {
+                    cout<<"The first place runner is "<<name2<<endl;
+                    if(time1 <= time3){ 
+                        cout<<"The second place runner is " <<name1<<endl;
+                        cout<<"The third place runner is  "<<name3<<endl;
+                    }
+                    else{ 
+                        cout<<"The second place runner is "<<name3<<endl;
+                        cout<<"The third place runner is "<<name1<<endl;
+                    }
+                }
+                else if (time3<=time1 && time3<=time2){ 
+                    cout<<"The first place runner is "<<name3<<endl;
+                    if(time1 <= time2){ 
+                       cout<<"The second place runner is "<<name1<<endl;
+                       cout<<"The third place runner is  "<<name2<<endl;
+                    }
+                    else{ 
+                        cout<<"The second place runner is "<<name2<<endl;
+                        cout<<"The third place runner is  "<<name1<<endl;
+                    }
+
+                }
+
+             }break;
+            case 10: {
+                //Declaration and Initialization
+                const float PI=3.14159f;
+                unsigned short shape; //which shape to calculate
+                float radius, base, height, width, length; 
+
+                cout<<endl<<"Gaddis 8th Ed. Chap4 Prob23"<<endl;
+                cout<<"Area of Circle, Rectangle, and Triangle."<<endl;
+
+                do { 
+                    cout<<endl<<"Input the number next to the shape youd like to get the area of"<<endl;
+                    cout<<"1. Area of a Circle"<<endl;
+                    cout<<"2. Area of a Rectangle"<<endl;
+                    cout<<"3. Area of a Triangle"<<endl;
+                    cout<<"4. Exit"<<endl;
+                    do {
+                        cin>>shape;
+                    } while (shape<0 && shape>4);
+
+                    cout << fixed << setprecision(4) << showpoint;
+                    //Switch between modes
+                    switch(shape){
+                        case 1:
+                        {
+                            cout<<"Input the radius of the circle."<<endl;
+                            cin>>radius;
+                            //Calculate the area
+                            cout<<"The area of the circle = "<<PI*(radius*radius)<<endl;
+                            break;
+                        }
+                        case 2:
+                        {   
+                            cout<<"Input the width of the rectangle. "<<endl;
+                            cin>>width;
+                            cout<<"Input the length of the rectangle: "<<endl;
+                            cin>>length;
+                            //Calculate the area
+                            cout<<"The area of the rectangle ="<<width*length<<endl;
+                            break;
+                        }  
+                        case 3: 
+                        {
+                            cout<<"Input the base of the triangle. "<<endl;
+                            cin>>base;
+                            //Input height
+                            cout<<"Input the height of the triangle. "<<endl;
+                            cin>>height;
+                            //Calculate the area
+                            cout<<"The area of the triangle = "<<base*height*0.5f<<endl;
+                            break;
+                        }
+                    }
+                } while (shape != 4);
+
+            }break;
             default:{
                 cout<<endl<<"Exiting the program"<<endl;
                 reDsply=false;}
