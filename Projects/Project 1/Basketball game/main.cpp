@@ -30,11 +30,11 @@ int main(){
     
  //Declare Variables
     string player, oponent, crtNam;
-    unsigned short selOp, court, shoot, ready, guesTyp, ranTyp;
-    unsigned char selFor, CselFor;
+    unsigned short selOp, court, guesTyp, ranTyp;
+    unsigned char selFor, CselFor, ready, shoot;
     bool force=true;       
     unsigned short ppts=0, opts=0; //Players and opponents points 
-    unsigned int begTime, endTime, totTime=10;
+    unsigned int begTime, endTime, totTime=8;
  
  //Open a file for game summary
     ofstream out;
@@ -167,10 +167,11 @@ int main(){
     
     //Second Possession
     cout<<"Ok now its your turn to show what you got. This possession requires"<<endl
-            <<"some quick reflexes so get ready."<<endl<<endl;
+            <<"some quick reflexes so enter any character when ready."<<endl<<endl;
+    cin>>ready;
     if (oponent=="Steph"){
         begTime=static_cast<unsigned int>(time(0));
-        cout<<"You were able to back down the smaller Curry, "<<endl 
+        cout<<endl<<"You were able to back down the smaller Curry, "<<endl 
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         endTime=static_cast<unsigned int>(time(0));
@@ -192,7 +193,7 @@ int main(){
         }         
     }else if (oponent=="Kobe"){
         begTime=static_cast<unsigned int>(time(0));
-        cout<<"You were able to create space against the much older Bryant, "<<endl 
+        cout<<endl<<"You were able to create space against the much older Bryant, "<<endl 
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         endTime=static_cast<unsigned int>(time(0));
@@ -214,7 +215,7 @@ int main(){
         }
     }else if (oponent=="Lebron"){
         begTime=static_cast<unsigned int>(time(0));
-        cout<<"You were able to run away form the slow giant Lebron, "<<endl 
+        cout<<endl<<"You were able to run away form the slow giant Lebron, "<<endl 
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         endTime=static_cast<unsigned int>(time(0));
@@ -271,22 +272,22 @@ int main(){
         }while(ranTyp==1);
         if (guesTyp==ranTyp){
             ppts++;
-            cout<<"You guessed right and blocked the shot! Then scored the final Basket!"<<endl;
+            cout<<endl<<"You guessed right and blocked the shot! Then scored the final Basket!"<<endl;
         }else if (guesTyp==2 && ranTyp==3){
             opts++;
-            cout<<"Oh No! You guessed wrong and started backing up expecting a drive"<<endl;
+            cout<<endl<<"Oh No! You guessed wrong and started backing up expecting a drive"<<endl;
             cout<<"but "<<oponent<<" shot it from outside and scored."<<endl<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
         }else if (guesTyp==3 && ranTyp==2){
             opts++;
-            cout<<"Oh No! You guessed wrong and jumped expecting a shot"<<endl;
+            cout<<endl<<"Oh No! You guessed wrong and jumped expecting a shot"<<endl;
             cout<<"but "<<oponent<<" pump faked and scored an easy layup."<<endl<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
         }
     }
     
     //Outputting to a file
-    out<<"Your player name was "<<player<<"."<<endl;
+    out<<endl<<"Your player name was "<<player<<"."<<endl;
     out<<"You played against "<<oponent<<"."<<endl;
     out<<"The game took place at "<<crtNam<<"."<<endl;
     

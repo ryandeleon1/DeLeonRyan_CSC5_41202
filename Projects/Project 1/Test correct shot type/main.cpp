@@ -30,11 +30,12 @@ int main(){
     
  //Declare Variables
     string player, oponent, crtNam;
-    unsigned short selOp, court, shoot, guesTyp, ranTyp;
+    unsigned short selOp, court, shoot, guesTyp, ranTyp = 1;
     unsigned char selFor, ready;
     bool force=true;       
     unsigned short ppts=0, opts=0; //Players and opponents points 
-    unsigned int begTime, endTime, totTime=8;
+    //unsigned int begTime, endTime, totTime=8;
+    clock_t begTime, endTime, totTime = 8;
  
  //Open a file for game summary
 //    ofstream out;
@@ -171,12 +172,12 @@ int main(){
             <<"some quick reflexes so get ready. Press any key"<<endl<<endl;
     cin>>ready;
     if (oponent=="Steph"){
-        begTime=static_cast<unsigned int>(time(0));
+        begTime=clock();
         cout<<"You were able to back down the smaller Curry, "<<endl 
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         shoot=toupper(shoot);
-        endTime=static_cast<unsigned int>(time(0));
+        endTime=clock();
         if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
@@ -194,11 +195,11 @@ int main(){
             }
         }         
     }else if (oponent=="Kobe"){
-        begTime=static_cast<unsigned int>(time(0));
+        begTime=clock();
         cout<<"You were able to create space against the much older Bryant, "<<endl 
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
-        endTime=static_cast<unsigned int>(time(0));
+        endTime=clock();
         if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
@@ -216,11 +217,11 @@ int main(){
             }
         }
     }else if (oponent=="Lebron"){
-        begTime=static_cast<unsigned int>(time(0));
+        begTime=clock();
         cout<<endl<<"You were able to run away form the slow giant Lebron, "<<endl 
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
-        endTime=static_cast<unsigned int>(time(0));
+        endTime=clock();
         if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
@@ -238,11 +239,11 @@ int main(){
             }
         }
     }else if (oponent=="James"){
-        begTime=static_cast<unsigned int>(time(0));
+        begTime=clock();
         cout<<endl<<"You were able to grab James' Beard and distract him., "<<endl 
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
-        endTime=static_cast<unsigned int>(time(0));
+        endTime=clock();
         if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
@@ -256,10 +257,13 @@ int main(){
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
             for(unsigned short i=0;i<=10;i++){
-            cout<<endl;
+                cout<<endl;
             }
         }
     }
+    cin.clear();
+    cin.ignore(1000,'\n');
+  
 //Third Possession
     if (ppts==1&&opts==1){
         cout<<"Final Possession. Next score wins!"<<endl;
@@ -267,7 +271,8 @@ int main(){
                 <<"you think he is going to take."<<endl;
         cout<<"Enter 2 if you think he will take a two pointer."<<endl;
         cout<<"Enter 3 if you think he will take a three pointer."<<endl;
-        cin>>guesTyp;
+        std::cin>>guesTyp;
+
         //Randomly generate a 2 or 3
         do{
         ranTyp=rand()%3+1;
@@ -302,5 +307,5 @@ int main(){
 //    }
 //    //Close file
 //    out.close();
-return 0;
+    return 0;
 }
