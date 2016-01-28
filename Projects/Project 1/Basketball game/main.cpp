@@ -29,17 +29,22 @@ int main(){
     srand(static_cast<unsigned int>(time(0)));
     
  //Declare Variables
-    string player, oponent;
-    unsigned short selOp, court, shoot, ready, guesTyp, actTyp;
+    string player, oponent, crtNam;
+    unsigned short selOp, court, shoot, ready, guesTyp, ranTyp;
     unsigned char selFor, CselFor;
     bool force=true;       
     unsigned short ppts=0, opts=0; //Players and opponents points 
     unsigned int begTime, endTime, totTime=10;
+ 
+ //Open a file for game summary
+    ofstream out;
+    out.open("Game Summary.dat");
     
  //Player input
     cout<<"WELCOME TO BASKETBALL ALLSTARS"<<endl;
     cout<<"Please enter the name of your player."<<endl;
     getline(cin, player);
+    
  //Picking opponent
     cout<<endl<<"Cool, so you're "<<player<<". "<<endl;
     cout<<"Which NBA ALL-STAR would you like to go up against?"<<endl;
@@ -82,18 +87,22 @@ int main(){
     switch(court){
         case 1:{
             cout<<endl<<"Welcome to Staples Center. Home of the LA Lakers."<<endl;
+            crtNam="Staples Center";
             break;
         }
         case 2:{
             cout<<endl<<"Welcome to Madison Square Garden. Home of the NY Knicks."<<endl;
+            crtNam="Madison Square Garden";
             break;
         }
         case 3:{
             cout<<endl<<"Welcome to Pauley Pavilion. Home of the UCLA Bruins."<<endl;
+            crtNam="Pauley Pavilion";
             break;
         }
         case 4:{
             cout<<endl<<"Welcome to Rucker Park. Streetball Central."<<endl;
+            crtNam="Rucker Park";
             break;
         }
         default:{
@@ -165,7 +174,7 @@ int main(){
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         endTime=static_cast<unsigned int>(time(0));
-        if (totTime<endTime-begTime){
+        if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
@@ -187,7 +196,7 @@ int main(){
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         endTime=static_cast<unsigned int>(time(0));
-        if (totTime<endTime-begTime){
+        if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
@@ -209,7 +218,7 @@ int main(){
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         endTime=static_cast<unsigned int>(time(0));
-        if (totTime<endTime-begTime){
+        if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
@@ -231,7 +240,7 @@ int main(){
             <<"quick, press 'S' to shoot."<<endl;
         cin>>shoot;
         endTime=static_cast<unsigned int>(time(0));
-        if (totTime<endTime-begTime){
+        if (totTime<=endTime-begTime){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
@@ -258,21 +267,39 @@ int main(){
         cin>>guesTyp;
         //Randomly generate a 2 or 3
         do{
-        actTyp=rand()%3+1;
-        }while(actTyp==1);
-        if (guesTyp==actTyp){
+        ranTyp=rand()%3+1;
+        }while(ranTyp==1);
+        if (guesTyp==ranTyp){
             ppts++;
             cout<<"You guessed right and blocked the shot! Then scored the final Basket!"<<endl;
-        }else if (guesTyp==2 && actTyp==3){
+        }else if (guesTyp==2 && ranTyp==3){
             opts++;
             cout<<"Oh No! You guessed wrong and started backing up expecting a drive"<<endl;
-            cout<<"but "<<oponent<<" sot it from outside and scored."<<endl<<endl;
-        }else if (guesTyp==3 && actTyp==2){
+            cout<<"but "<<oponent<<" shot it from outside and scored."<<endl<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts;
+        }else if (guesTyp==3 && ranTyp==2){
             opts++;
             cout<<"Oh No! You guessed wrong and jumped expecting a shot"<<endl;
             cout<<"but "<<oponent<<" pump faked and scored an easy layup."<<endl<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts;
         }
     }
     
+    //Outputting to a file
+    out<<"Your player name was "<<player<<"."<<endl;
+    out<<"You played against "<<oponent<<"."<<endl;
+    out<<"The game took place at "<<crtNam<<"."<<endl;
+    
+    if (ppts==2){
+            cout<<"Congratulations "<<player<<" you beat "<<oponent<<" in a 1v1"<<endl
+            <<"pickup game!! The game summary will be output to a file. Thank you"<<endl;
+            out<<"You won the game."<<endl;
+    }else if (opts==2){
+        cout<<"Im sorry "<<player<<" you lost to "<<oponent<<" in a 1v1"<<endl
+            <<"pickup game!! The game summary will be output to a file. Thank you"<<endl;
+        out<<"You lost the game."<<endl;
+    }
+    //Close file
+    out.close();
 return (0);
 }
