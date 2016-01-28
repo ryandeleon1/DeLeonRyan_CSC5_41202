@@ -31,7 +31,7 @@ int main(){
  //Declare Variables
     string player, opponent;
     unsigned short selOp, court;
-    unsigned char selFor;
+    unsigned char selFor, CselFor;
     bool force=true;       
     unsigned short ppts, opts; //Players and opponents points 
     
@@ -102,28 +102,33 @@ int main(){
     cout<<endl<<endl;
     cout<<"Ok now lets start the game. First player to score 2 points wins."<<endl;
     cout<<"Each possession will have a different set of instructions and you"<<endl
-            <<" need to react quickly so pay attention. BEGIN!"<<endl<<endl;
+            <<"may need to react quickly so pay attention. BEGIN!"<<endl<<endl;
  //First posession
-    cout<<"You check the ball to "<<opponent<<". Now since you're on defense"<<endl;
-            <<" you have to force him to his off hand."<<endl;
+    cout<<"You check the ball to "<<opponent<<". Now since you're on defense"<<endl
+            <<"you have to force him to his off hand."<<endl;
     cout<<"Enter 'L' to force "<<opponent<<" left. Or 'R' to force him right"<<endl;
     cin>>selFor;
-    
+    CselFor=toupper(selFor);
     //Using ternary operator 
-    if (selFor=='L')
+    if (CselFor=='L')
         force=false;
     if (opponent=="Steph"){
         cout<<"Sorry, unfortunately you chose to play the best ball handler"<<endl 
-                <<" in the world so he has no off hand. You "<<endl;
+            <<"in the world so he has no off hand. You got crossed up and scored on."<<endl;
         opts++;
-        cout<<"The score "
+        cout<<"The score is "<<ppts<<" - "<<opts;
     }else if (opponent=="Kobe"){
-        if (selFor=='L')
+        if (CselFor=='R')
             opts++;
-        else ppts++;
         cout<<(force?"Wrong move, Kobe is right handed and you get dunked on":
             "Nice move, forcing him left caused a turnover. Your ball")<<endl;
         cout<<"The score is "<<ppts<<" - "<<opts;
-    }    
+    }else if (opponent=="Lebron"){
+        if (CselFor=='R')
+            opts++;
+        cout<<(force?"Wrong move, Lebron is right handed and you get dunked on":
+            "Nice move, forcing him left caused a turnover. Your ball")<<endl;
+        cout<<"The score is "<<ppts<<" - "<<opts;
+    }        
 return (0);
 }
