@@ -248,7 +248,7 @@ int main(int argc, char** argv) {
                      case 3: cout<<"I";
                      case 2: cout<<"I";
                      case 1: cout<<"I";
-                 }
+                 }break;
             }case 6:{
                     //Declare and initialize variables
                 unsigned char answer;
