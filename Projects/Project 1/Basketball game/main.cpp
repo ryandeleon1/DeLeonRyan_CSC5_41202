@@ -19,9 +19,15 @@ using namespace std;
 //Execution Begins Here
 
 int main(){
+    
+    //Redisplay
+    bool reDsply=true; 
+    do{
+        
  //Header
+    cout<<endl;
     cout<<"*************************************************************"<<endl;
-    cout<<"**                    BASKETBALL ALL STARS                 **"<<endl;
+    cout<<"**                    NBA ALL STARS                 **"<<endl;
     cout<<"**                  Created By:  Ryan DeLeon               **"<<endl;
     cout<<"*************************************************************"<<endl;
     
@@ -31,21 +37,19 @@ int main(){
  //Declare Variables
     string player, oponent, crtNam;
     unsigned short selOp, court, guesTyp, ranTyp;
-    unsigned char selFor, CselFor, ready, shoot, plyAgn;
-    bool force=true, reDsply=true;       
+    unsigned char selFor, ready, shoot, plyAgn;
+    bool force=true;       
     unsigned short ppts=0, opts=0; //Players and opponents points 
-    unsigned int begTime, endTime, totTime=8;
+    unsigned int begTime, endTime, totTime=5, n;
  
  //Open a file for game summary
     ofstream out;
     out.open("Game Summary.dat");
     
-    do{
-    
  //Player input
-    cout<<"WELCOME TO BASKETBALL ALLSTARS"<<endl;
-    cout<<"Please enter the name of your player."<<endl;
-    getline(cin, player);
+    cout<<"WELCOME TO NBA ALLSTARS"<<endl;
+    cout<<"Please enter the name of your player. (First name only lease)"<<endl;
+    cin>>player;
     
  //Picking opponent
     cout<<endl<<"Cool, so you're "<<player<<". "<<endl;
@@ -123,52 +127,52 @@ int main(){
             <<"you have to force him to his off hand."<<endl;
     cout<<"Enter 'L' to force "<<oponent<<" left. Or 'R' to force him right"<<endl;
     cin>>selFor;
-    CselFor=toupper(selFor);
+    selFor=toupper(selFor);
     
     //Using ternary operator / And "For loop" for quick spacing
-    if (CselFor=='L')
+    if (selFor=='L')
         force=false;
     if (oponent=="Steph"){
-        cout<<"Sorry, unfortunately you chose to play the best ball handler"<<endl 
+        cout<<endl<<"Sorry, unfortunately you chose to play the best ball handler"<<endl 
             <<"in the world so he has no off hand. You got crossed up and scored on. Your ball"<<endl;
         opts++;
-        cout<<"The score is "<<ppts<<" - "<<opts;
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;
         for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }else if (oponent=="Kobe"){
-        if (CselFor=='R')
+        if (selFor=='R')
             opts++;
         else ppts++;
         cout<<(force?"Wrong move, Kobe is right handed and you get dunked on. Your ball":
             "Nice move, forcing him left caused a turnover and an easy lay up for you. Your ball")<<endl;
-        cout<<"The score is "<<ppts<<" - "<<opts;
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;
         for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }else if (oponent=="Lebron"){
-        if (CselFor=='R')
+        if (selFor=='R')
             opts++;
         else ppts++;
         cout<<(force?"Wrong move, Lebron is right handed and you get dunked on. Your ball":
             "Nice move, forcing him left caused a turnover and an easy lay up for you. Your ball")<<endl;
-        cout<<"The score is "<<ppts<<" - "<<opts;
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;
         for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }else if (oponent=="James"){
-        if (CselFor=='L')
+        if (selFor=='L')
             opts++;
         else ppts++;
         cout<<(!force?"Wrong move, James is left handed and you get dunked on":
             "Nice move, forcing him right caused a turnover and an easy lay up for you. Your ball")<<endl;
-        cout<<"The score is "<<ppts<<" - "<<opts;
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;
         for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }
     
-    //Second Possession
+    //Second Possession, use while loop for quick spacing this time
     cout<<"Second Possession."<<endl<<endl;
     cout<<"Ok now its your turn to show what you got. This possession requires"<<endl
             <<"some quick reflexes so enter any character when ready."<<endl<<endl;
@@ -183,16 +187,18 @@ int main(){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+             while(n<5){
+                cout<<endl;
+                n++;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+            while(n<5){
+                cout<<endl;
+                n++;
             }
         }         
     }else if (oponent=="Kobe"){
@@ -205,16 +211,18 @@ int main(){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+             while(n<5){
+                cout<<endl;
+                n++;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+             while(n<5){
+                cout<<endl;
+                n++;
             }
         }
     }else if (oponent=="Lebron"){
@@ -227,16 +235,18 @@ int main(){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+             while(n<5){
+                cout<<endl;
+                n++;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+             while(n<5){
+                cout<<endl;
+                n++;
             }
         }
     }else if (oponent=="James"){
@@ -249,16 +259,18 @@ int main(){
             opts++;
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+             while(n<5){
+                cout<<endl;
+                n++;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=5;i++){
-            cout<<endl;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+             while(n<5){
+                cout<<endl;
+                n++;
             }
         }
     }
@@ -296,13 +308,13 @@ int main(){
     out<<"The game took place at "<<crtNam<<"."<<endl;
     
     if (ppts==2){
-            cout<<"Congratulations "<<player<<" you beat "<<oponent<<" in a 1v1"<<endl
+            cout<<endl<<"Congratulations "<<player<<" you beat "<<oponent<<" in a 1v1"<<endl
             <<"pickup game!! The game summary will be output to a file. Thank you"<<endl;
-            out<<"You won the game."<<endl;
+            out<<"You won the game. 2-1"<<endl;
     }else if (opts==2){
         cout<<endl<<"Im sorry "<<player<<" you lost to "<<oponent<<" in a 1v1"<<endl
             <<"pickup game!! The game summary will be output to a file."<<endl;
-        out<<"You lost the game."<<endl;
+        out<<"You lost the game. 1-2"<<endl;
     }
     //Ask to play again
     cout<<"Would you like to play again? 'Y' or 'N'? "<<endl;
@@ -315,6 +327,6 @@ int main(){
     }while(reDsply);
     
     //Say goodbye 
-    cout<<endl<<"Thank you for ,playing NBA ALLSTARS!"<<endl;
+    cout<<endl<<"Thank you for playing NBA ALLSTARS!"<<endl;
 return (0);
 }
