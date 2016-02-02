@@ -31,14 +31,16 @@ int main(){
  //Declare Variables
     string player, oponent, crtNam;
     unsigned short selOp, court, guesTyp, ranTyp;
-    unsigned char selFor, CselFor, ready, shoot;
-    bool force=true;       
+    unsigned char selFor, CselFor, ready, shoot, plyAgn;
+    bool force=true, reDsply=true;       
     unsigned short ppts=0, opts=0; //Players and opponents points 
     unsigned int begTime, endTime, totTime=8;
  
  //Open a file for game summary
     ofstream out;
     out.open("Game Summary.dat");
+    
+    do{
     
  //Player input
     cout<<"WELCOME TO BASKETBALL ALLSTARS"<<endl;
@@ -116,6 +118,7 @@ int main(){
             <<"may need to react quickly so pay attention. BEGIN!"<<endl<<endl;
     
  //First posession
+    cout<<"First Possession."<<endl<<endl;
     cout<<"You check the ball to "<<oponent<<". Now since you're on defense"<<endl
             <<"you have to force him to his off hand."<<endl;
     cout<<"Enter 'L' to force "<<oponent<<" left. Or 'R' to force him right"<<endl;
@@ -130,7 +133,7 @@ int main(){
             <<"in the world so he has no off hand. You got crossed up and scored on. Your ball"<<endl;
         opts++;
         cout<<"The score is "<<ppts<<" - "<<opts;
-        for(unsigned short i=0;i<=10;i++){
+        for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }else if (oponent=="Kobe"){
@@ -140,7 +143,7 @@ int main(){
         cout<<(force?"Wrong move, Kobe is right handed and you get dunked on. Your ball":
             "Nice move, forcing him left caused a turnover and an easy lay up for you. Your ball")<<endl;
         cout<<"The score is "<<ppts<<" - "<<opts;
-        for(unsigned short i=0;i<=10;i++){
+        for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }else if (oponent=="Lebron"){
@@ -150,7 +153,7 @@ int main(){
         cout<<(force?"Wrong move, Lebron is right handed and you get dunked on. Your ball":
             "Nice move, forcing him left caused a turnover and an easy lay up for you. Your ball")<<endl;
         cout<<"The score is "<<ppts<<" - "<<opts;
-        for(unsigned short i=0;i<=10;i++){
+        for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }else if (oponent=="James"){
@@ -160,12 +163,13 @@ int main(){
         cout<<(!force?"Wrong move, James is left handed and you get dunked on":
             "Nice move, forcing him right caused a turnover and an easy lay up for you. Your ball")<<endl;
         cout<<"The score is "<<ppts<<" - "<<opts;
-        for(unsigned short i=0;i<=10;i++){
+        for(unsigned short i=0;i<=5;i++){
             cout<<endl;
         }
     }
     
     //Second Possession
+    cout<<"Second Possession."<<endl<<endl;
     cout<<"Ok now its your turn to show what you got. This possession requires"<<endl
             <<"some quick reflexes so enter any character when ready."<<endl<<endl;
     cin>>ready;
@@ -180,14 +184,14 @@ int main(){
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }         
@@ -202,14 +206,14 @@ int main(){
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }
@@ -224,14 +228,14 @@ int main(){
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }
@@ -246,21 +250,21 @@ int main(){
             cout<<endl<<"You were to slow and the shot got blocked, causing an easy"<<endl
                     <<"bucket for "<<oponent<<"."<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }else if(totTime>endTime-begTime) {
             ppts++;
             cout<<endl<<"Awesome! Your quick reactions paid off. Swish!"<<endl;
             cout<<"The score is "<<ppts<<" - "<<opts;
-            for(unsigned short i=0;i<=10;i++){
+            for(unsigned short i=0;i<=5;i++){
             cout<<endl;
             }
         }
     }
     //Third Possession
     if (ppts==1&&opts==1){
-        cout<<"Final Possession. Next score wins!"<<endl;
+        cout<<"Final Possession. Next score wins!"<<endl<<endl;
         cout<<"For this possession you have to guess what type of shot"<<endl
                 <<"you think "<<oponent<<" is going to take."<<endl;
         cout<<"Enter 2 if you think he will take a two pointer."<<endl;
@@ -277,12 +281,12 @@ int main(){
             opts++;
             cout<<endl<<"Oh No! You guessed wrong and started backing up expecting a drive"<<endl;
             cout<<"but "<<oponent<<" shot it from outside and scored."<<endl<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
         }else if (guesTyp==3 && ranTyp==2){
             opts++;
             cout<<endl<<"Oh No! You guessed wrong and jumped expecting a shot"<<endl;
             cout<<"but "<<oponent<<" pump faked and scored an easy layup."<<endl<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts;
+            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
         }
     }
     
@@ -296,11 +300,21 @@ int main(){
             <<"pickup game!! The game summary will be output to a file. Thank you"<<endl;
             out<<"You won the game."<<endl;
     }else if (opts==2){
-        cout<<"Im sorry "<<player<<" you lost to "<<oponent<<" in a 1v1"<<endl
-            <<"pickup game!! The game summary will be output to a file. Thank you"<<endl;
+        cout<<endl<<"Im sorry "<<player<<" you lost to "<<oponent<<" in a 1v1"<<endl
+            <<"pickup game!! The game summary will be output to a file."<<endl;
         out<<"You lost the game."<<endl;
     }
+    //Ask to play again
+    cout<<"Would you like to play again? 'Y' or 'N'? "<<endl;
+    cin>>plyAgn;
+    plyAgn=toupper(plyAgn);
+    if(plyAgn!='Y') reDsply=false;
+    
     //Close file
     out.close();
+    }while(reDsply);
+    
+    //Say goodbye 
+    cout<<endl<<"Thank you for ,playing NBA ALLSTARS!"<<endl;
 return (0);
 }
