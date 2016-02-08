@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
     //Menu to Display Solution
     do{
         //Input problem to display, i.e. Menu
-        cout<<"Final Problem Set"<<endl;
+        cout<<endl<<"Final Problem Set"<<endl;
         cout<<"Type 1 to Display Problem 1."<<endl;
         cout<<"Type 2 to Display Problem 2."<<endl;
         cout<<"Type 3 to Display Problem 3."<<endl;
@@ -68,9 +68,26 @@ int main(int argc, char** argv) {
 /******************************************************************************/
 void problem1(){
     cout<<endl<<"We are in problem 1"<<endl<<endl;
+    //Declare Variables
+    unsigned short input; //Number to flip
+    short flipped=0;      //Number in reverse
+    short r;              //Remainder 
+    //Inputs
+    cout<<"Enter the number to reverse: ";
+    cin>>input;
     
-    
+    //Calculate
+    if (input<=65535){
+    while(input!=0) {
+        r=input%10;
+        flipped=flipped*10+r;
+        input/=10;
+    }
+    //Output
+    cout<<"Your number flipped = "<<flipped<<endl; 
+    }else cout<<"Your number cannot be reversed.";       
 }
+
 /******************************************************************************/
 /************************** Problem 2 *****************************************/
 /******************************************************************************/

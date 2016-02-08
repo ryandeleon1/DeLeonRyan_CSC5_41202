@@ -215,7 +215,7 @@ void problem2(){
     //******************************************************************************
     void outputs(float totMeters){
         cout<<fixed<<setprecision(2)<<showpoint;
-        cout<<"That is equal to "<<totMeters<<" meters"endl;
+        cout<<"That is equal to "<<totMeters<<" meters"<<endl;
     }
 /******************************************************************************/
 /************************** Problem 3 *****************************************/
