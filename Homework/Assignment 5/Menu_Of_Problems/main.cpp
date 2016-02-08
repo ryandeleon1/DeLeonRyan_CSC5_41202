@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
     //Menu to Display Solution
     do{
         //Input problem to display, i.e. Menu
-        cout<<endl<<endl<<"Assignment 3 Problem Set"<<endl;
+        cout<<endl<<endl<<"Assignment 5 Problem Set"<<endl;
         cout<<"Type 1 to Display Savitch 9thEd Chap5 Prob1"<<endl;
         cout<<"Type 2 to Display Savitch 9thEd Chap5 Prob2"<<endl;
         cout<<"Type 3 to Display Savitch 9thEd Chap5 Prob5"<<endl;
