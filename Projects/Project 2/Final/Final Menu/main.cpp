@@ -67,32 +67,91 @@ int main(int argc, char** argv) {
 /************************** Problem 1 *****************************************/
 /******************************************************************************/
 void problem1(){
-    cout<<endl<<"We are in problem 1"<<endl<<endl;
+    cout<<endl<<"*************************************************"<<endl<<endl;
+    cout<<endl<<"**              REVERSE YOUR NUMBER            **"<<endl<<endl;
+    cout<<endl<<"*************************************************"<<endl<<endl;
+    
     //Declare Variables
-    unsigned short input; //Number to flip
-    short flipped=0;      //Number in reverse
-    short r;              //Remainder 
+    unsigned int input;  //Number to flip
+    short flipped=0;     //Number in reverse
+    short r;             //Remainder 
     //Inputs
     cout<<"Enter the number to reverse: ";
     cin>>input;
     
     //Calculate
-    if (input<=65535){
-    while(input!=0) {
-        r=input%10;
-        flipped=flipped*10+r;
-        input/=10;
+    if (input<=65535){         //signed short limit
+    while(input!=0) {          //Loop till there is nothing left
+        r=input%10;            //Find the last digit of the input 
+        flipped=flipped*10+r;  //add on that last digit
+        input/=10;             //take off the last digit
     }
+    if (flipped>32767)         //Signed short limit
+        cout<<"Your number cannot be reversed."<<endl; 
+    
     //Output
-    cout<<"Your number flipped = "<<flipped<<endl; 
-    }else cout<<"Your number cannot be reversed.";       
+    else {
+        cout<<"Your number flipped = "<<flipped<<endl; 
+        cout<<"The flipped number - 99 = "<<flipped-99<<endl;
+    }
+    }else cout<<"Your number cannot be reversed."<<endl;       
 }
 
 /******************************************************************************/
 /************************** Problem 2 *****************************************/
 /******************************************************************************/
 void problem2(){
-    cout<<endl<<"We are in problem 2"<<endl<<endl;
+    cout<<endl<<"*************************************************"<<endl<<endl;
+    cout<<endl<<"**               GUESS THE NUMBER              **"<<endl<<endl;
+    cout<<endl<<"*************************************************"<<endl<<endl;
+    
+    srand(static_cast<int>(time(0))); //Set random number seed
+    
+    //Declare Variables
+    short x; 
+    short guesses=0;   //Number of guesses
+    int number=0;      //Number to guess
+    int range=0;       //Range of random numbers to generate
+    int player;        //Player'sguess
+    unsigned char plyAgn; //players response to playing again
+   
+    do{
+    //Inputs
+    cout<<endl<<"Input x : ";
+    cin>>x;
+    
+    //Calculate
+    range=pow(10,x);               //Guess number Range
+    number=(rand()%range)+1;       //Selecting a random number
+    guesses=(log(range)/log(2))+1; //Determining number of guesses
+    cout<<endl<<"I have a number between 1 and "<<range<<"."<<endl;
+    cout<<"Can you guess my number? You will be "<<endl;
+    cout<<"given a maximum of "<<guesses<<" guesses."<<endl;
+    
+    //Start the game
+    while(guesses!=0 && player!=number){
+        cout<<endl<<"Please type your guess."<<endl;
+        cin>>player;
+           if(player==number){     //Player guesses the number correctly
+                cout<<"Congratulations, You guessed the number!"<<endl;
+            }
+           else if(player<number){ //Players guess is less than the number
+                cout<<"Too low."<<endl;
+                guesses-=1;
+                cout<<"You have "<<guesses<<" guesses left."<<endl;      
+            }
+           else if(player>number){ //Players guess is greater than the number
+                cout<<endl<<"Too high."<<endl;
+                guesses-=1;
+                cout<<"You have "<<guesses<<" guesses left."<<endl; 
+            }
+    }
+    if(guesses==0) cout<<endl<<"Sorry you lose."<<endl;
+    cout<<"Would you like to play again (y or n)?"<<endl;
+    cin>>plyAgn;
+    plyAgn=toupper(plyAgn);
+    }while(plyAgn=='Y');
+    cout<<"Thank you for playing."<<endl;       
 }
 /******************************************************************************/
 /************************** Problem 3 *****************************************/
