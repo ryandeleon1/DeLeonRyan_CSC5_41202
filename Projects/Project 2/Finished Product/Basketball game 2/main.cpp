@@ -54,7 +54,7 @@ int main(){
     
  //Open a file for game summary
     ofstream out;
-    out.open("Game Summary.dat");
+    out.open("Game Summary.dat",ios::app);
     
  //Player input
     cout<<"WELCOME TO NBA ALLSTARS"<<endl;
@@ -367,9 +367,9 @@ int main(){
         names[i][1] = name;  //odds second column    
     }
     //label columns
-    cout<<"Correct Order     Your order"<<endl<<endl;
+    cout<<"Correct Order    Your order"<<endl<<endl;
     for(int i=0; i<row; i++){ 
-            for(int j=0; j<col; j++) cout<<names[i][j]  <<"      ";
+            for(int j=0; j<col; j++) cout<<names[i][j]<<"      ";
             cout << endl;
     }
     
