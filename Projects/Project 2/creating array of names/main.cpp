@@ -2,7 +2,7 @@
     File:   main.cpp
     Author: Ryan DeLeon
     Created on February 9, 2016, 8:20 AM
-    Purpose: Filling a vector
+    Purpose: 
  */
 
 //System Libraries

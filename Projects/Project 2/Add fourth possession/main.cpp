@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Ryan DeLeon
- * Created on January 27, 2016, 10:04 AM
+ * 
  */
 
 //User Libraries
