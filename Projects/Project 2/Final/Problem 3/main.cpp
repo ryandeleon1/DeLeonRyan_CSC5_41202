@@ -25,13 +25,11 @@ void prntVecOd(vector<int> &);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
-    //Initialize the seed
-    srand(static_cast<unsigned int>(time(0)));
     
     //Declare Variables
     int size=0;
     int row=0;
-    int board[row][2];
+    int array[row][2];
     //Getting the size of the vectors
     cout<<"What is the size of the vectors?"<<endl;
     cin>>size;        
@@ -58,11 +56,11 @@ int main(int argc, char** argv) {
     cout<<"Evens  Odds"<<endl;
     
     for(int i=0; i<row; i++){   //Loop for the rows
-        board[i][0] =(rand()%9000+1000)/2*2; //Evens first column
-        board[i][1] =((rand()%9000+1000)/2*2)+1;  //odds second column    
+        array[i][0] =(rand()%9000+1000)/2*2; //Evens first column
+        array[i][1] =((rand()%9000+1000)/2*2)+1;  //odds second column    
     }
     for(int i=0; i<row; i++){ 
-            for(int j=0; j<2; j++) cout<<board[i][j]  << "   ";
+            for(int j=0; j<2; j++) cout<<array[i][j]  << "   ";
             cout << endl;
     }
     //Exit stage right

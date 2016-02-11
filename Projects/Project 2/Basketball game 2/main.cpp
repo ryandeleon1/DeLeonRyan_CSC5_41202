@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Ryan DeLeon
- * Created on January 27, 2016, 10:04 AM
+ * Created on February , 11, 12:38 AM
  */
 
 //User Libraries
@@ -16,6 +16,9 @@ using namespace std;
 //System Libraries
 //Global Constants
 //Function Prototypes
+void fillCrt(int [], int);
+void prntCrt(int [], int);
+bool assgnLoc (int [], short, short);
 //Execution Begins Here
 
 int main(){
@@ -27,7 +30,7 @@ int main(){
  //Header
     cout<<endl;
     cout<<"*************************************************************"<<endl;
-    cout<<"**                    NBA ALL STARS                 **"<<endl;
+    cout<<"**                    NBA ALL STARS                        **"<<endl;
     cout<<"**                  Created By:  Ryan DeLeon               **"<<endl;
     cout<<"*************************************************************"<<endl;
     
@@ -36,19 +39,26 @@ int main(){
     
  //Declare Variables
     string player, oponent, crtNam;
-    unsigned short selOp, court, guesTyp, ranTyp;
+    unsigned int selOp, court, guesTyp, ranTyp;
     unsigned char selFor, ready, shoot, plyAgn;
     bool force=true;       
     unsigned short ppts=0, opts=0; //Players and opponents points 
-    unsigned int begTime, endTime, totTime=5, n;
- 
+    unsigned int begTime, endTime, totTime=5, n=0;
+    const int SIZE=6;
+    int crt[SIZE];
+    short loc;
+    int col=2;
+    int row=4;
+    string names[row][col];
+    string name;  
+    
  //Open a file for game summary
     ofstream out;
     out.open("Game Summary.dat");
     
  //Player input
     cout<<"WELCOME TO NBA ALLSTARS"<<endl;
-    cout<<"Please enter the name of your player. (First name only lease)"<<endl;
+    cout<<"Please enter the name of your player. (First name only please)"<<endl;
     cin>>player;
     
  //Picking opponent
@@ -275,31 +285,104 @@ int main(){
         }
     }
     //Third Possession
-    if (ppts==1&&opts==1){
-        cout<<"Final Possession. Next score wins!"<<endl<<endl;
-        cout<<"For this possession you have to guess what type of shot"<<endl
-                <<"you think "<<oponent<<" is going to take."<<endl;
-        cout<<"Enter 2 if you think he will take a two pointer."<<endl;
-        cout<<"Enter 3 if you think he will take a three pointer."<<endl;
-        cin>>guesTyp;
-        //Randomly generate a 2 or 3
-        do{
-        ranTyp=rand()%3+1;
-        }while(ranTyp==1);
-        if (guesTyp==ranTyp){
-            ppts++;
-            cout<<endl<<"You guessed right and blocked the shot! Then scored the final Basket!"<<endl;
-        }else if (guesTyp==2 && ranTyp==3){
-            opts++;
-            cout<<endl<<"Oh No! You guessed wrong and started backing up expecting a drive"<<endl;
-            cout<<"but "<<oponent<<" shot it from outside and scored."<<endl<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
-        }else if (guesTyp==3 && ranTyp==2){
-            opts++;
-            cout<<endl<<"Oh No! You guessed wrong and jumped expecting a shot"<<endl;
-            cout<<"but "<<oponent<<" pump faked and scored an easy layup."<<endl<<endl;
-            cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+    cout<<"Third Possession."<<endl<<endl;
+    cout<<"For this possession you have to guess what type of shot"<<endl
+            <<"you think "<<oponent<<" is going to take."<<endl;
+    cout<<"Enter 2 if you think he will take a two pointer."<<endl;
+    cout<<"Enter 3 if you think he will take a three pointer."<<endl;
+    cin>>guesTyp;
+    //Randomly generate a 2 or 3
+    do{
+    ranTyp=rand()%3+1;
+    }while(ranTyp==1);
+    if (guesTyp==ranTyp){
+        ppts++;
+        cout<<endl<<"You guessed right and blocked the shot! Then scored a Basket!"<<endl;
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+    }else if (guesTyp==2 && ranTyp==3){
+        opts++;
+        cout<<endl<<"Oh No! You guessed wrong and started backing up expecting a drive"<<endl;
+        cout<<"but "<<oponent<<" shot it from outside and scored."<<endl<<endl;
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+    }else if (guesTyp==3 && ranTyp==2){
+        opts++;
+        cout<<endl<<"Oh No! You guessed wrong and jumped expecting a shot"<<endl;
+        cout<<"but "<<oponent<<" pump faked and scored an easy layup."<<endl<<endl;
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;
+    }
+    
+    
+    //Fourth possession
+     for(unsigned short i=0;i<=5;i++){
+            cout<<endl;
         }
+    if (ppts==2 || opts==2){
+        cout<<"Fourth possession."<<endl;
+        cout<<"For this posession you have to choose which spot you think "
+                <<oponent<<" will shoot from on the court. Good Luck!"<<endl;
+        cout<<endl;
+        
+        //fill array
+        fillCrt(crt,SIZE);    
+        //print the court
+        prntCrt(crt,SIZE);
+        
+        //Get players guess
+        cout<<"Where do you think "<<oponent<<" will shoot from?"<<endl;
+        cin>>loc;
+        
+        if (assgnLoc(crt, selOp, loc)){
+        cout<<endl<<"You chose correctly and beat him to the spot! You scored!"<<endl;
+        ppts++;
+        }
+        else {
+            cout<<endl<<"Sorry you ran to the wrong spot..."<<endl;
+            opts++;
+        }
+        cout<<"The score is "<<ppts<<" - "<<opts<<endl;     
+    }
+    
+    //Fifth possession
+     for(unsigned short i=0;i<=5;i++){
+            cout<<endl;
+        }
+    if(ppts==opts){
+    cout<<"Final Posession. Next Score wins."<<endl;
+    cout<<"This last round is a little different so read carefully."<<endl;
+    cout<<"To score this last point you must list the playable opponents "
+            <<"in order of youngest to oldest."<<endl;
+    cout<<"Be sure to press enter once you've finished typing each person."<<endl;
+    cout<<"Also, make sure to capitalize the first letter of each name...Proper english."<<endl;
+    
+    //Filling first column
+    names[0][0]="Steph";
+    names[1][0]="James";
+    names[2][0]="Lebron";
+    names[3][0]="Kobe";
+    cout<<endl<<"Enter the players name in order of youngest to oldest."<<endl<<endl;
+   
+    //Filling second column
+    for(int i=0; i<row; i++){     
+        cin>>name;//Loop for the rows
+        names[i][1] = name;  //odds second column    
+    }
+    //label columns
+    cout<<"Correct Order     Your order"<<endl<<endl;
+    for(int i=0; i<row; i++){ 
+            for(int j=0; j<col; j++) cout<<names[i][j]  <<"      ";
+            cout << endl;
+    }
+    
+    //check the columns 
+    if(names[0][0]==names[0][1] && names[1][0]==names[1][1] &&
+       names[2][0]==names[2][1] && names[3][0]==names[3][1]) {
+        cout<<endl<<"You know your basketball."<<endl;
+        ppts++;
+    }
+    else {
+      cout<<endl<<"Looks like you dont know your basketball."<<endl;
+      opts++;
+    }
     }
     
     //Outputting to a file
@@ -307,14 +390,16 @@ int main(){
     out<<"You played against "<<oponent<<"."<<endl;
     out<<"The game took place at "<<crtNam<<"."<<endl;
     
-    if (ppts==2){
+    if (ppts==3){
             cout<<endl<<"Congratulations "<<player<<" you beat "<<oponent<<" in a 1v1"<<endl
             <<"pickup game!! The game summary will be output to a file. Thank you"<<endl;
-            out<<"You won the game. 2-1"<<endl;
-    }else if (opts==2){
+            out<<"You won the game."<<endl;
+            out<<"The score was "<<ppts<<" - "<<opts<<endl;  
+    }else if (opts==3){
         cout<<endl<<"Im sorry "<<player<<" you lost to "<<oponent<<" in a 1v1"<<endl
             <<"pickup game!! The game summary will be output to a file."<<endl;
-        out<<"You lost the game. 1-2"<<endl;
+        out<<"You lost the game."<<endl;
+        out<<"The score was "<<ppts<<" - "<<opts<<endl;  
     }
     //Ask to play again
     cout<<"Would you like to play again? 'Y' or 'N'? "<<endl;
@@ -329,4 +414,47 @@ int main(){
     //Say goodbye 
     cout<<endl<<"Thank you for playing NBA ALLSTARS!"<<endl;
 return (0);
+}
+
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//                     Print Court
+//******************************************************************************
+void prntCrt(int crt[],int n){
+    cout<<endl;
+    cout<<" __________________________________"<<endl;
+    cout<<"|    |     |           |      |    |"<<endl;
+    cout<<"|  "<<crt[1]<<" |     |           |      | "<<crt[5]<<"  |"<<endl;
+    cout<<"|    |     |           |      |    |"<<endl;
+    cout<<"|    |     |___________|      |    |"<<endl;
+    cout<<"|    \\      \\          /      /    |"<<endl;
+    cout<<"|     \\      \\        /      /     |"<<endl;
+    cout<<"|      \\      \\______/      /      |"<<endl;
+    cout<<"|     "<<crt[2]<<"  \\                /  "<<crt[4]<<"     |"<<endl;
+    cout<<"|          \\            /          |"<<endl;
+    cout<<"|            \\________/            |"<<endl;
+    cout<<"|                 "<<crt[3]<<"                |"<<endl;
+    cout<<"|__________________________________|"<<endl;        
+    cout<<endl;
+}
+
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//                     Fill Array
+//******************************************************************************
+void fillCrt(int crt[],int n){
+    for(int i=1;i<n;i++){
+        crt[i]=i;
+    }
+}
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//                     Assign opponent a different location
+//******************************************************************************
+bool assgnLoc(int crt[], short selOp, short loc){
+    if (selOp==1 && loc==1) return true;
+    else if (selOp==2 && loc==2) return true;
+    else if (selOp==3 && loc==4) return true;
+    else if (selOp==4 && loc==5) return true;
+    else return false;
 }

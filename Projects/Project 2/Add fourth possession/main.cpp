@@ -338,7 +338,7 @@ int main(){
         cout<<"The score is "<<ppts<<" - "<<opts<<endl;     
     }
     
-    //Fifth posession
+    //Fifth possession
     
     
     //Outputting to a file
