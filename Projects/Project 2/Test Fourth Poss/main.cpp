@@ -19,20 +19,32 @@ using namespace std;
 //Function prototypes
 void fillCrt(int [],int);
 void prntCrt(int [],int);
-
-
+bool assgnOp(int [], short, short);
 //Execution Begins Here
 int main(int argc, char** argv) {
 
     //Declare variables
     const int SIZE=6;
     int court[SIZE];
+    short selOp;
+    short loc;
+    
+    cout<<"Select Opponent : ";
+    cin>>selOp;
     
     //Fill the array with random 2 digit numbers
     fillCrt(court,SIZE);
     
     //Print the array
     prntCrt(court,SIZE);
+    
+    cout<<"Select the location : ";
+    cin>>loc;
+    
+    if (assgnOp(court, selOp, loc)){
+        cout<<endl<<"you win"<<endl;
+    }
+    else cout<<endl<<"you lose"<<endl;
     
     //Exit stage right
     return 0;
@@ -71,3 +83,15 @@ void fillCrt(int crt[],int n){
         crt[i]=i;//[10,99]
     }
 }
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//                     Assign opponent a different location
+//******************************************************************************
+bool assgnOp(int crt[], short selOp, short loc){
+    if (selOp==1 && loc==1) return true;
+    else if (selOp==2 && loc==2) return true;
+    else if (selOp==3 && loc==3) return true;
+    else if (selOp==4 && loc==4) return true;
+    else return false;
+}
+
