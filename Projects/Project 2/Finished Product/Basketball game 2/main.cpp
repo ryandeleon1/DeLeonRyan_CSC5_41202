@@ -27,6 +27,7 @@ void sortScores(string[],int[],int);
 
 int main(){
     
+    //Variables for the scores and players array
     const int size=5;
     string players[size];
     int scores[size];
