@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Basketball game 2
+PROJECTNAME=Bubble_sort _players
 
 # Active Configuration
 DEFAULTCONF=Debug

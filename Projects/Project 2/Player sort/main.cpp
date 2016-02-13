@@ -27,21 +27,21 @@ void sortScores(string[],int[],int);
 
 int main(){
     
-    const int size=5;
-    string players[size];
-    int scores[size];
-    int counter;
-    
-    
-     //Open a file for game summary
-    ofstream out;
-    out.open("Game Summary.dat",ios::app);
-    
     //Redisplay
     bool reDsply=true; 
     do{
         
-    //Declare Variables
+ //Header
+    cout<<endl;
+    cout<<"*************************************************************"<<endl;
+    cout<<"**                    NBA ALL STARS                        **"<<endl;
+    cout<<"**                  Created By:  Ryan DeLeon               **"<<endl;
+    cout<<"*************************************************************"<<endl;
+    
+ //Set random seed
+    srand(static_cast<unsigned int>(time(0)));
+    
+ //Declare Variables
     string player, oponent, crtNam;
     unsigned int selOp, court, guesTyp, ranTyp;
     unsigned char selFor, ready, shoot, plyAgn;
@@ -53,18 +53,14 @@ int main(){
     short loc;
     string names[ROW][COL];  
     string name;
+    const int size=30;
+    string players[size];
+    int scores[size];
+    int counter;
     
- //Header
-    cout<<endl;
-    cout<<"*************************************************************"<<endl;
-    cout<<"**                    NBA ALL STARS                        **"<<endl;
-    cout<<"**                  Created By:  Ryan DeLeon               **"<<endl;
-    cout<<"*************************************************************"<<endl;
-    
- //Set random seed
-    srand(static_cast<unsigned int>(time(0)));
-    
-    
+ //Open a file for game summary
+    ofstream out;
+    out.open("Game Summary.dat",ios::app);
     
  //Player input
     cout<<"WELCOME TO NBA ALLSTARS"<<endl;
@@ -403,7 +399,6 @@ int main(){
     }
     //Ask to play again
     cout<<"Would you like to play again? 'Y' or 'N'? "<<endl;
-    cout<<"No will display the top players so far."<<endl;
     cin>>plyAgn;
     plyAgn=toupper(plyAgn);
     if(plyAgn!='Y') reDsply=false;
@@ -413,23 +408,15 @@ int main(){
     players[counter]=player;
     scores[counter]=ppts;
     
-    
-    
-    
-    
-    }while(reDsply);
-    
-    //Sort top Scores, on;y sorts the players score not the opponents
     sortScores(players,scores,size);
     
-    //Display The top scores
-    cout<<endl<<"Here are the top players so far."<<endl;
     cout<<"Top Players"<<"    "<<"Score"<<endl;
     for(int i=0;i<counter;i++)
     cout<<players[i]<<setw(15)<<scores[i]<<endl;
     
     //Close file
     out.close();
+    }while(reDsply);
     
     //Say goodbye 
     cout<<endl<<"Thank you for playing NBA ALLSTARS!"<<endl;
@@ -493,23 +480,22 @@ void fillNames(string n[ROW][COL],int row, int col, string &nam){
     }
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-//                     Sort the players scores
-//******************************************************************************
-void sortScores(string p[],int s[], int size)
+void sortScores(/*in*/string names[], /*in*/int scores[], /*in*/int size)
 {
-    int scan, smlstPl, smallest, temp;
+	int startScan, minIndex, minValue, temp;
 
-    for (scan=size-1;scan>0;scan--){
-        smlstPl=0;
-        smallest=s[0];
-        for (int i=1;i<=scan;i++){       
-            if (s[i]<s[smlstPl]){
-                smlstPl=i;
-            }
-        }
-        std::swap(s[smlstPl], s[scan]);
-        std::swap(p[smlstPl], p[scan]);
-    }
+	for (startScan = size - 1; startScan > 0; startScan--)
+	{
+		minIndex = 0;
+		minValue = scores[0];
+		for (int index = 1; index <= startScan; index++)
+		{
+			if (scores[index] < scores[minIndex])
+			{
+				minIndex = index;
+			}
+		}
+		std::swap(scores[minIndex], scores[startScan]);
+                std::swap(names[minIndex], names[startScan]);
+	}
 }
